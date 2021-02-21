@@ -3,10 +3,11 @@ from django.urls import path
 from estadodelmce import settings
 from django.conf.urls.static import static
 
-from estadodelmce.views import CommunistPartyView
+from estadodelmce.views import IndexView, CommunistPartiesView
 
 urlpatterns = [
-    path('', CommunistPartyView.as_view()),
+    path('', IndexView.as_view()),
+    path('lista-de-partidos/', CommunistPartiesView.as_view()),
     path('admin/', admin.site.urls),
 ]
 

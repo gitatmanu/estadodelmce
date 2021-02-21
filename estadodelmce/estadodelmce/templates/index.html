@@ -1,40 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>¿Cómo está el MCE?</title>
-  </head>
-  <body>
-
-<div class="jumbotron jumbotron-fluid">
-  <div class="container-fluid bg-secondary">
-	  <h1 class="display-4">Existen {{ objects.count }} partidos comunistas en España.</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <title>estadodelmce</title>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <style>
+      .vertical-middle {
+        position: relative;
+        top: 20%;
+      }
+    </style>
+  
+</head>
+<body>
+  <div class="jumbotron-fluid text-center" style="height: 60vh">
+    <div class="container vertical-middle">
+          <span class="display-4 align-middle">Hay {{ objects.count }} organizaciones comunistas en España.</span>
+          <div class="h6">Puedes ser tú la persona que cree la vanguardia, crea la tuya propia!</div>
+        <a class="mt-4 vertical-middle btn btn-light btn-lg border" href="http://{{ request.META.HTTP_HOST }}/lista-de-partidos" role="button">Mostrar lista completa</a>
+    </div>
   </div>
-</div>
 
-<div class="container">
-    <div class="row">
-    {% for obj in objects %}
-	      <div class="col-3">
-<div class="card" style="width: 18rem;">
-	<img src="{{ obj.logo.url }}" class="card-img-top"> 
-  <div class="card-body">
-	  <h5 class="card-title">{{ obj.name }}</h5>
-	  <p class="card-text">{{ obj.description }}</p>
-	  <a href="{{ obj.url }}" class="btn btn-primary">Link</a>
-  </div>
-</div>
-
-</div>
-{% endfor %}
-</div>
-
-</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  </body>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
 </html>
 
