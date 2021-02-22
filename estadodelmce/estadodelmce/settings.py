@@ -22,6 +22,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost', 
     '192.168.1.119', 
+    '192.168.1.93', 
     'manelmata.zapto.org'
     ]
 
@@ -37,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'estadodelmce',
-
-    'multiselectfield',
 ]
 
 MIDDLEWARE = [

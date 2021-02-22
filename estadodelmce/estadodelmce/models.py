@@ -1,5 +1,4 @@
 from django.db import models
-from multiselectfield import MultiSelectField
 
 MY_CHOICES = (('item_key1', 'Item title 1.1'),
               ('item_key2', 'Item title 1.2'),
@@ -10,7 +9,6 @@ MY_CHOICES = (('item_key1', 'Item title 1.1'),
 class CommunistParty(models.Model):
     name = models.CharField(max_length=80)
     acronym = models.CharField(max_length=20, null=True, blank=True)
-    trend = MultiSelectField(choices=MY_CHOICES, default='hola')
 
     description = models.TextField()
     logo = models.ImageField(upload_to='') 
