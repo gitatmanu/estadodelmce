@@ -14,7 +14,8 @@ SECRET_KEY = Secrets.SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0'
-		, '95.19.1.241', 'estadodelmce.es']
+		, '95.19.1.241', 'estadodelmce.es'
+		,'192.168.1.119']
 
 
 # Application definition
