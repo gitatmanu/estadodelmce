@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 from estadodelmce.views import IndexView, CommunistPartiesView
 
 urlpatterns = [
-    path('estadodelmce/', IndexView.as_view()),
-    path('estadodelmce/lista-de-partidos/', CommunistPartiesView.as_view(), name="communistparty_list"),
-    path('estadodelmce/admin/', admin.site.urls),
+    path('', IndexView.as_view()),
+    path('lista-de-partidos/', CommunistPartiesView.as_view(), name="communistparty_list"),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
