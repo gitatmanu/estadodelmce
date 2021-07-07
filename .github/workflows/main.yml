@@ -37,3 +37,9 @@ jobs:
       - name: Docker build certbot
         run: |
           docker build ./ -t certbot/certbot
+          
+      - name: Docker push
+        run: |
+          docker push django-estadodelmce
+          docker push nginx
+          docker push certbot/certbot
