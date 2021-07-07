@@ -33,20 +33,10 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       # Runs a single command using the runners shell
-      - name: Docker build Django
+      - name: Docker build estadodelmce
         run: |
           docker build ./ -t odioindiferente/django-estadodelmce:1.0.0
-
-      - name: Docker build Nginx
-        run: |
-          docker build ./ -t odioindiferente/nginx:1.0.0
-          
-      - name: Docker build certbot
-        run: |
-          docker build ./ -t odioindiferente/certbot:1.0.0
           
       - name: Docker push
         run: |
           docker push odioindiferente/django-estadodelmce:1.0.0
-          docker push odioindiferente/nginx:1.0.0
-          docker push odioindiferente/certbot:1.0.0
