@@ -1,0 +1,50 @@
+#!/bin/bash
+
+PREFIX="MY CLIENT -"
+REPO_PATH='/home/manel/estadodelmce'
+
+ACCEPTABLE_BRANCH="DEV"
+
+COMPOSE_FILE="docker-compose.yml"
+CLIENT_IMAGE="odioindiferente/django-estadodelmce"
+
+
+deploy () {
+  cd $REPO_PATH
+  # FRONTEND_TAG is being used in the compose file as the tag variable
+  # image: 127.0.0.1:5000/mpc_nginx_client:${FRONTEND_TAG}
+  export FRONTEND_TAG=$(env -i git log -1 --pretty=%h)
+  
+  # fetch and reset the latest branch
+  env -i git fetch origin $ACCEPTABLE_BRANCH
+  env -i git checkout -B $ACCEPTABLE_BRANCH --track origin/$ACCEPTABLE_BRANCH
+  
+  # build and tag the image using the latest commit hash (short)
+  docker-compose -f $COMPOSE_FILE build nginx_client
+  docker tag $CLIENT_IMAGE:$FRONTEND_TAG $CLIENT_IMAGE:latest
+  # push to local registry defined in the compose file
+  docker-compose -f $COMPOSE_FILE push nginx_client
+  # apply rolling updates to services assuming they were deployed using docker stack deploy
+  docker service update \
+    --image $CLIENT_IMAGE:$FRONTEND_TAG \
+  # rollback to previous version on failue
+    --update-failure-action rollback \
+  # monitor the service for upto 1 minute before confirming the update
+    --update-monitor 1m \
+    mpc_nginx_client
+}
+
+# read the incoming branch and if matched with the acceptable branch
+# run deploy method else exit with message
+while read oldrev newrev refname
+do
+    INCOMING_BRANCH=$(git rev-parse --symbolic --abbrev-ref $refname)
+    echo "$PREFIX Received branch $INCOMING_BRANCH"
+
+    if [ "$INCOMING_BRANCH" == "$ACCEPTABLE_BRANCH" ]; then
+        echo "$PREFIX received branch is same as branch on client repo"
+        deploy
+    else
+        echo "$PREFIX received branch is not $ACCEPTABLE_BRANCH"
+    fi
+done
