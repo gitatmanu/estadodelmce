@@ -35,18 +35,18 @@ jobs:
       # Runs a single command using the runners shell
       - name: Docker build Django
         run: |
-          docker build ./ -t django-estadodelmce
+          docker build ./ -t odioindiferente/django-estadodelmce:1.0.0
 
       - name: Docker build Nginx
         run: |
-          docker build ./ -t nginx
+          docker build ./ -t odioindiferente/nginx:1.0.0
           
       - name: Docker build certbot
         run: |
-          docker build ./ -t certbot
+          docker build ./ -t odioindiferente/certbot:1.0.0
           
       - name: Docker push
         run: |
-          docker push odioindiferente/django-estadodelmce
-          docker push odioindiferente/nginx
-          docker push odioindiferente/certbot
+          docker push odioindiferente/django-estadodelmce:1.0.0
+          docker push odioindiferente/nginx:1.0.0
+          docker push odioindiferente/certbot:1.0.0
