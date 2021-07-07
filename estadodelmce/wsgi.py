@@ -1,5 +1,5 @@
 """
-WSGI config for pdfcomuna project.
+WSGI config for estadodelmce project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

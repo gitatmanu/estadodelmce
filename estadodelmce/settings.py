@@ -1,24 +1,17 @@
-from estadodelmce.keyconfig import Database, Secrets
 from pathlib import Path
 import os
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+SECRET_KEY = "2dmk3dkm23dmk23fnj2dj23jJND#NJD@NJD@"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = Secrets.SECRET_KEY
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0'
 		, '95.19.1.241', 'estadodelmce.es'
 		,'192.168.1.119']
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,21 +51,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pdfcomuna.wsgi.application'
+WSGI_APPLICATION = 'estadodelmce.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    "prueba": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": Database.NAME,
-        "USER": Database.USER,
-        "PASSWORD": Database.PASSWORD,
-        "HOST": Database.HOST,
-        "PORT": Database.PORT,
-    },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(BASE_DIR / "db.sqlite3"),
