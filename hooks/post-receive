@@ -20,10 +20,10 @@ deploy () {
   env -i git checkout -B $ACCEPTABLE_BRANCH --track origin/$ACCEPTABLE_BRANCH
   
   # build and tag the image using the latest commit hash (short)
-  docker-compose -f $COMPOSE_FILE build nginx_client
+  docker-compose -f $COMPOSE_FILE build django-estadodelmce
   docker tag $CLIENT_IMAGE:$FRONTEND_TAG $CLIENT_IMAGE:latest
   # push to local registry defined in the compose file
-  docker-compose -f $COMPOSE_FILE push nginx_client
+  docker-compose -f $COMPOSE_FILE push django-estadodelmce
   # apply rolling updates to services assuming they were deployed using docker stack deploy
   docker service update \
     --image $CLIENT_IMAGE:$FRONTEND_TAG \
