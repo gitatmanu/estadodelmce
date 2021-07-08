@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'estadodelmce',
 
-    'django_bootstrap5',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
