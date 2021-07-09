@@ -11,7 +11,7 @@ class CommunistParty(models.Model):
     acronym = models.CharField(max_length=20, null=True, blank=True)
 
     description = models.TextField()
-    logo = models.ImageField(upload_to='') 
+    logo = models.ImageField(upload_to='')
     url = models.CharField(max_length=80)
 
     foundation_date = models.DateField()

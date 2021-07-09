@@ -10,7 +10,8 @@ services:
       - 8000
     volumes:
       - staticfiles:/home/app/web/staticfiles
-      - ./estadodelmce/static/:/home/app/web/static  
+      - ./estadodelmce/static/:/home/app/web/static
+      - ./media:/home/app/web/media
   nginx:
     container_name: nginx
     image: nginx:mainline-alpine
@@ -36,3 +37,4 @@ services:
 
 volumes:
   staticfiles:
+  media:
