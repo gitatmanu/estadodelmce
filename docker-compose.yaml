@@ -9,7 +9,8 @@ services:
     expose:
       - 8000
     volumes:
-      - staticfiles:/home/app/web/staticfiles  
+      - staticfiles:/home/app/web/staticfiles
+      - ./estadodelmce/static/:/home/app/web/static  
   nginx:
     container_name: nginx
     image: nginx:mainline-alpine
