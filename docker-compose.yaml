@@ -9,7 +9,10 @@ services:
     expose:
       - 8000
     volumes:
-      - staticfiles:/home/app/web/staticfiles  
+      - staticfiles:/home/app/web/staticfiles
+      - ./estadodelmce/static/:/home/app/web/static
+      - ./media:/home/app/web/media
+      - ./db.sqlite3:/home/app/web/db.sqlite3
   nginx:
     container_name: nginx
     image: nginx:mainline-alpine
@@ -35,3 +38,5 @@ services:
 
 volumes:
   staticfiles:
+  media:
+  db.sqlite3:
