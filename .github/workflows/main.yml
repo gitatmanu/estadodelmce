@@ -40,3 +40,8 @@ jobs:
       - name: Docker push
         run: |
           docker push odioindiferente/django-estadodelmce:1.0.0
+          
+          
+      - name: Refresh production build
+        run: |
+          ssh root@estadodelmce.es -p 1917 "cd /home/manel/estadodelmce && git pull && sudo docker-compose up --build -d"
