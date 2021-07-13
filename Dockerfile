@@ -32,7 +32,7 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
-ENV SECRET_KEY=${{ secrets.SECRET_KEY }}
+RUN cat $SECRET_KEY
 
 RUN python3 /home/app/web/manage.py check  --deploy
 
