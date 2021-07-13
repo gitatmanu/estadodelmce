@@ -33,7 +33,7 @@ RUN chown -R app:app $APP_HOME
 USER app:app
 
 
-ENV SECRET_KEY=CLAVESECRETAPARAELCICD
+RUN SECRET_KEY=CLAVESECRETAPARAELCICD
 
 RUN python3 /home/app/web/manage.py check
 
