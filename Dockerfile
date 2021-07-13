@@ -33,7 +33,7 @@ RUN chown -R app:app $APP_HOME
 USER app:app
 
 
-RUN SECRET_KEY=$(cd /home/app/web && python3 import os; os.getenv("SECRET_KEY") )
+RUN SECRET_KEY=$(cd /home/app/web && python3 -c 'import os; os.getenv("SECRET_KEY")' )
 
 RUN if [ -z ${SECRET_KEY+x} ]; then SECRET_KEY=fk4fkk034fk040k40k4k04 else; fi
 
