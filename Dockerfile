@@ -1,7 +1,7 @@
 FROM python:3.8.2
 
 ARG SECRET_KEY
-RUN echo ${SECRET_KEY}
+
 ENV PYTHONBUFFERED 1
 ENV PYTHONWRITEBYTECODE 1
 
@@ -34,6 +34,8 @@ RUN chown -R app:app $APP_HOME
 USER app:app
 
 ENV SECRET_KEY=${SECRET_KEY}
+RUN bash -c "if [ -z ${var+x} ]; unset $SECRET_KEY; else echo "a"; fi"
+
 
 RUN cd $APP_HOME
 RUN python3 ./manage.py check --deploy
