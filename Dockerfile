@@ -32,8 +32,7 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
-
-RUN export SECRET_KEY=CLAVESECRETAPARAELCICD
+ENV SECRET_KEY=CLAVESECRETAPARAELCICD
 
 RUN python3 /home/app/web/manage.py check  --deploy
 

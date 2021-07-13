@@ -9,9 +9,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0'
-		, '95.19.1.241', 'estadodelmce.es'
-		,'192.168.1.119']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 
+'0.0.0.0', 'estadodelmce.es']
 
 
 INSTALLED_APPS = [
