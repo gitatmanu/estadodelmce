@@ -35,7 +35,8 @@ USER app:app
 
 ENV SECRET_KEY=${SECRET_KEY}
 
-RUN python3 /home/app/web/manage.py check --deploy --settings=estadodelmce.settings
+RUN cd $APP_HOME
+RUN python3 ./manage.py check --deploy
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
 
