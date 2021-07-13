@@ -6,6 +6,5 @@ python manage.py makemigrations main --noinput
 python manage.py migrate --noinput 
 
 python manage.py collectstatic --noinput
-python3 manage.py check
 
 exec "$@"
