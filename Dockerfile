@@ -34,7 +34,7 @@ RUN chown -R app:app $APP_HOME
 USER app:app
 
 ENV SECRET_KEY=${SECRET_KEY}
-RUN bash -c "if [ -z ${var+x} ]; unset $SECRET_KEY; else echo "a"; fi"
+RUN export SECRET_KEY=$SECRET_KEY
 
 
 RUN cd $APP_HOME
