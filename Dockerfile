@@ -1,7 +1,5 @@
 FROM python:3.8.2
 
-ARG SECRET_KEY
-
 ENV PYTHONBUFFERED 1
 ENV PYTHONWRITEBYTECODE 1
 
@@ -32,10 +30,6 @@ COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
 USER app:app
-
-ENV SECRET_KEY=${SECRET_KEY}
-RUN export SECRET_KEY=$SECRET_KEY
-
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
 
