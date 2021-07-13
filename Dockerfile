@@ -36,7 +36,7 @@ USER app:app
 ENV SECRET_KEY=${SECRET_KEY}
 RUN export SECRET_KEY=$SECRET_KEY
 
-RUN python3 /home/app/web/manage.py check --deploy --settings=estadodelmce.settings
+RUN python3 /home/app/web/manage.py check --settings=estadodelmce.settings
 
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
