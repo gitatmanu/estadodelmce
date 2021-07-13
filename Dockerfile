@@ -32,6 +32,8 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
+ENV SECRET_KEY=i9023i-23i-2i0-i0-dk0-023k0-23k-023
+
 RUN python3 /home/app/web/manage.py check
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]

@@ -6,7 +6,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.getenv("SECRET_KEY") if os.getenv("SECRET_KEY") != '' else os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY') if os.environ.get('SECRET_KEY') else os.getenv("SECRET_KEY")
 
 DEBUG = False
 
