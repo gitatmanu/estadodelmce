@@ -1,5 +1,6 @@
 FROM python:3.8.2
 
+ARG SECRET_KEY
 ENV PYTHONBUFFERED 1
 ENV PYTHONWRITEBYTECODE 1
 
@@ -30,8 +31,8 @@ COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
 USER app:app
-ARG SECRET_KEY
-ENV SECRET_KEY=$SECRET_KEY
+
+ENV SECRET_KEY=${SECRET_KEY}
 
 RUN python3 /home/app/web/manage.py check  --deploy
 
