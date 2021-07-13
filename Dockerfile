@@ -33,9 +33,9 @@ RUN chown -R app:app $APP_HOME
 USER app:app
 
 
-RUN SECRET_KEY=CLAVESECRETAPARAELCICD
+RUN export SECRET_KEY=CLAVESECRETAPARAELCICD
 
-RUN python3 /home/app/web/manage.py check
+RUN python3 /home/app/web/manage.py check  --deploy
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
 
