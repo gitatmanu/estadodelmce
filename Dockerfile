@@ -32,8 +32,6 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
-ENV SECRET_KEY=$SECRET_KEY
-
 RUN python3 /home/app/web/manage.py check  --deploy
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
