@@ -51,4 +51,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd /home/manel/estadodelmce && git pull && sudo docker-compose up --build -d
+          script: cd /home/manel/estadodelmce && git pull && sudo docker-compose up --build --build-arg SECRET_KEY=$SECRET_KEY -d
