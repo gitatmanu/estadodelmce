@@ -35,7 +35,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Docker build estadodelmce
         run: |
-          docker build ./ -t odioindiferente/django-estadodelmce:1.0.0 --build-arg SECRET_KEY=${{ secrets.SECRET_KEY }}
+          docker build ./ -t odioindiferente/django-estadodelmce:1.0.0 --build-arg SECRET_KEY=$SECRET_KEY
           
       - name: Docker push
         run: |
