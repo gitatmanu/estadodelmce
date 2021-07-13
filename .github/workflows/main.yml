@@ -34,10 +34,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Docker build estadodelmce
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          docker build ./ -t odioindiferente/django-estadodelmce:1.0.0 --build-arg SECRET_KEY=$SECRET_KEY
+          docker build ./ -t odioindiferente/django-estadodelmce:1.0.0
           
       - name: Docker push
         run: |
@@ -51,4 +49,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd /home/manel/estadodelmce && git pull && sudo docker-compose up --build --build-arg SECRET_KEY=$SECRET_KEY -d
+          script: cd /home/manel/estadodelmce && git pull && sudo docker-compose up --build -d
