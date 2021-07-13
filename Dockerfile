@@ -29,10 +29,9 @@ RUN pip install -r requirements.txt
 COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
-
-ENTRYPOINT ["sh", "-c", "export $SECRET_KEY=je3j93993j923rj9r32"]
-
 USER app:app
+
+ENV SECRET_KEY=sjdjiefjieijeeijf
 
 RUN python3 /home/app/web/manage.py check  --deploy
 
