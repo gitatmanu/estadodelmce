@@ -32,6 +32,8 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
+RUN python3 /home/app/web/manage.py check
+
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
 
 
