@@ -32,9 +32,9 @@ RUN chown -R app:app $APP_HOME
 
 USER app:app
 
-RUN cat $SECRET_KEY
-
 RUN python3 /home/app/web/manage.py check  --deploy
+
+ENTRYPOINT ["sh", "-c", "export $SECRET_KEY"]
 
 ENTRYPOINT ["/home/app/web/entrypoint.sh"]
 
