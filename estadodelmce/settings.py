@@ -9,6 +9,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', '9e4@&tw46$l31)zrqe3wi+-slqm(ruvz&se0^%9#6(
 
 DEBUG = False
 
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+
 ALLOWED_HOSTS = ['*']
 
 
