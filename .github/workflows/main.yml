@@ -27,7 +27,7 @@ jobs:
 
 
       - name: Linting
-        uses: docker://github/super-linterv2.1.1
+        uses: docker://github/super-linter:v2.1.1
 
       - name: Docker login
         env:
