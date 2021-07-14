@@ -36,6 +36,12 @@ jobs:
         run: |
           docker build ./ -t odioindiferente/django-estadodelmce:1.0.0
 
+      - name: Linting
+        run: |
+        pip install flake8
+        flake8 . --count --select=E9, F63, F7, F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
       - name: Docker push
         run: |
           docker push odioindiferente/django-estadodelmce:1.0.0     
