@@ -7,3 +7,4 @@ sqlparse==0.4.1
 Pillow
 python-dotenv
 django-bootstrap4
+pysftp
